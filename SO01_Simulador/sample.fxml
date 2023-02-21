@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="774.0" prefWidth="517.0" styleClass="rootPane" stylesheets="@sytle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <ImageView fx:id="imgCel" fitHeight="776.0" fitWidth="521.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/phone.png" />
+         </image>
+      </ImageView>
+      <TabPane fx:id="tabPaneOS" layoutX="14.0" layoutY="79.0">
+         <tabs>
+            <Tab text="Inicio">
+               <content>
+                  <VBox alignment="CENTER" style="-fx-background-color: #383838;">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="93.0" prefWidth="81.0" styleClass="logo-train" />
+                        <Label prefHeight="7.0" prefWidth="185.0" text="MARL OS" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Dubai Medium" size="44.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="-15.0" />
+                           </padding>
+                        </Label>
+                        <Label prefHeight="6.0" prefWidth="60.0" text="Mobile" textFill="WHITE">
+                           <font>
+                              <Font name="Dubai Light" size="22.0" />
+                           </font>
+                           <padding>
+                              <Insets top="-10.0" />
+                           </padding>
+                        </Label>
+                        <ProgressBar fx:id="pbMOS" prefWidth="200.0" progress="0.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </ProgressBar>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="SmartPhone">
+               <content>
+                  <BorderPane prefHeight="619.0" prefWidth="350.0" stylesheets="@sytle.css">
+                     <bottom>
+                        <HBox alignment="CENTER" prefHeight="51.0" prefWidth="332.0" spacing="50.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="btnBack" mnemonicParsing="false" onAction="#onClick" prefHeight="25.0" prefWidth="23.0" stylesheets="@sytle.css">
+                                 <styleClass>
+                                    <String fx:value="menu-button" />
+                                    <String fx:value="menu-button-back" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="btnHome" mnemonicParsing="false" onAction="#onClick" prefHeight="25.0" prefWidth="25.0" stylesheets="@sytle.css">
+                                 <styleClass>
+                                    <String fx:value="menu-button" />
+                                    <String fx:value="menu-button-home" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="btnRecent" accessibleText="Apps" mnemonicParsing="false" onAction="#onClick" prefHeight="25.0" prefWidth="25.0" stylesheets="@sytle.css">
+                                 <styleClass>
+                                    <String fx:value="menu-button" />
+                                    <String fx:value="menu-button-apps" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </bottom>
+                     <center>
+                        <TabPane fx:id="tabPaneSystem" prefHeight="47.0" prefWidth="332.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                           <tabs>
+                              <Tab text="Home">
+                                 <content>
+                                    <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(img/wallpaper.jpg); -fx-background-position: center center;">
+                                       <bottom>
+                                          <HBox alignment="BOTTOM_CENTER" prefHeight="51.0" prefWidth="350.0" style="-fx-background-color: #00000047;" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <Button fx:id="btnApps" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#onClick" styleClass="app-apps" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="15.0" top="15.0" />
+                                             </padding>
+                                          </HBox>
+                                       </bottom>
+                                       <center>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <VBox fx:id="appPhone" alignment="CENTER" layoutX="28.0" layoutY="374.0" onMouseClicked="#onMouseClick" prefHeight="67.0" prefWidth="59.0" spacing="5.0" styleClass="app">
+                                                   <children>
+                                                      <Button fx:id="btnPhone" mnemonicParsing="false" onAction="#onClick" prefHeight="34.0" prefWidth="39.0" styleClass="app-phone" stylesheets="@sytle.css" />
+                                                      <Label alignment="CENTER" text="Telefone">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font></Label>
+                                                   </children>
+                                                </VBox>
+                                                <VBox fx:id="appMen" alignment="CENTER" layoutX="142.0" layoutY="374.0" onMouseClicked="#onMouseClick" prefHeight="67.0" prefWidth="66.0" spacing="5.0" styleClass="app">
+                                                   <children>
+                                                      <Button fx:id="btnMen" mnemonicParsing="false" onAction="#onClick" prefHeight="39.0" prefWidth="39.0" styleClass="app-men" />
+                                                      <Label alignment="CENTER" prefHeight="17.0" prefWidth="77.0" text="Mensagem" textAlignment="CENTER">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font></Label>
+                                                   </children>
+                                                </VBox>
+                                                <VBox fx:id="appInternet" alignment="CENTER" layoutX="266.0" layoutY="374.0" onMouseClicked="#onMouseClick" prefHeight="67.0" prefWidth="59.0" spacing="5.0" styleClass="app">
+                                                   <children>
+                                                      <Button fx:id="btnInternet" mnemonicParsing="false" onAction="#onClick" prefHeight="38.0" prefWidth="39.0" styleClass="app-net" stylesheets="@sytle.css" />
+                                                      <Label alignment="CENTER" text="Internet">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                                <VBox fx:id="appSo" alignment="CENTER" layoutX="21.0" layoutY="271.0" onMouseClicked="#onMouseClick" prefHeight="67.0" prefWidth="75.0" spacing="5.0" styleClass="app">
+                                                   <children>
+                                                      <Button fx:id="btnSo" mnemonicParsing="false" onAction="#onClick" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: transparent;" stylesheets="@sytle.css">
+                                                         <graphic>
+                                                            <ImageView fitHeight="47.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/book.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SO Tunenbaum" textAlignment="CENTER" wrappingWidth="75.41925811767578">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="-10.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </center>
+                                    </BorderPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Tel">
+                                <content>
+                                    <BorderPane style="-fx-background-color: #333333;">
+                                       <center>
+                                          <VBox prefHeight="196.0" prefWidth="350.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="69.0" prefWidth="350.0" style="-fx-background-color: #00000025;">
+                                                   <children>
+                                                      <Label fx:id="lblNumber" alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="300.0" textFill="#5096ff">
+                                                         <padding>
+                                                            <Insets right="15.0" />
+                                                         </padding>
+                                                         <font>
+                                                            <Font size="30.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Button fx:id="btnTelDel" mnemonicParsing="false" onAction="#onClick" style="-fx-background-color: #00000000;">
+                                                         <graphic>
+                                                            <SVGPath content="M19,15.59L17.59,17L14,13.41L10.41,17L9,15.59L12.59,12L9,8.41L10.41,7L14,10.59L17.59,7L19,8.41L15.41,12L19,15.59M22,3A2,2 0 0,1 24,5V19A2,2 0 0,1 22,21H7C6.31,21 5.77,20.64 5.41,20.11L0,12L5.41,3.88C5.77,3.35 6.31,3 7,3H22M22,5H7L2.28,12L7,19H22V5Z" fill="WHITE" />
+                                                         </graphic></Button>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="30.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </center>
+                                       <bottom>
+                                          <VBox alignment="BOTTOM_CENTER" prefHeight="351.0" prefWidth="350.0" spacing="15.0" style="-fx-background-color: #00000025;" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <GridPane prefHeight="260.0" prefWidth="350.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <VBox fx:id="btnTelTwo" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber" GridPane.columnIndex="1">
+                                                         <children>
+                                                            <Label text="2" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="ABC" textFill="#5096ff" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="btnTelThree" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber" GridPane.columnIndex="2">
+                                                         <children>
+                                                            <Label text="3" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="DEF" textFill="#5096ff" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="btnTelFour" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber" GridPane.rowIndex="1">
+                                                         <children>
+                                                            <Label text="4" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="GHI" textFill="#5096ff" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="btnTelFive" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <children>
+                                                            <Label text="5" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="JKL" textFill="#5096ff" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="btnTelSix" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                         <children>
+                                                            <Label text="6" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="MNO" textFill="#5096ff" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="btnTelSeven" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber" GridPane.rowIndex="2">
+                                                         <children>
+                                                            <Label text="7" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="PQRS" textFill="#5096ff" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="btnTelEigth" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <children>
+                                                            <Label text="8" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="TUV" textFill="#5096ff" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="btnTelNine" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                         <children>
+                                                            <Label text="9" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="WXYZ" textFill="#5096ff" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="btnTelOne" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber">
+                                                         <children>
+                                                            <Label text="1" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="-" textFill="#5096ff" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="btnTelZero" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                         <children>
+                                                            <Label text="0" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="+" textFill="#5096ff" />
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="btnTelStar" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber" GridPane.rowIndex="3">
+                                                         <children>
+                                                            <Label text="*" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fx:id="btnTelHastag" alignment="CENTER" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="100.0" styleClass="keynumber" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                         <children>
+                                                            <Label text="#" textFill="#5096ff">
+                                                               <font>
+                                                                  <Font size="28.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </GridPane>
+                                                <HBox alignment="BOTTOM_CENTER" prefHeight="61.0" prefWidth="350.0">
+                                                   <children>
+                                                      <Button fx:id="btnTelCall" mnemonicParsing="false" onAction="#onClick" prefHeight="50.0" prefWidth="50.0" styleClass="button-call">
+                                                         <graphic>
+                                                            <SVGPath content="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" fill="WHITE" />
+                                                         </graphic>
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </bottom>
+                                    </BorderPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Mens">
+                                 <content>
+                                    <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #333333;">
+                                       <center>
+                                          <ScrollPane hbarPolicy="NEVER" prefHeight="239.0" prefWidth="91.0" style="-fx-background-color: #333333;" styleClass="edge-to-edge" BorderPane.alignment="CENTER">
+                                             <content>
+                                                <VBox prefHeight="494.0" prefWidth="354.0" style="-fx-background-color: #333333;">
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="342.0">
+                                                         <children>
+                                                            <Circle fill="#34dd3a" radius="29.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                                            <VBox prefHeight="85.0" prefWidth="266.0">
+                                                               <children>
+                                                                  <Label text="+1 0210" textFill="#e8e4e4">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label text="Mercado Livre: Compra Aprovada" textFill="#c3c3c3" />
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets left="10.0" right="10.0" top="20.0" />
+                                                               </padding>
+                                                            </VBox>
+                                                            <Circle fill="DODGERBLUE" radius="6.0" stroke="#ffffff00" strokeType="INSIDE" />
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="15.0" right="15.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="342.0" style="-fx-background-color: #00000034;">
+                                                         <children>
+                                                            <Circle fill="#e943ff" radius="29.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                                            <VBox prefHeight="85.0" prefWidth="266.0">
+                                                               <children>
+                                                                  <Label text="OI INFORMA" textFill="#e8e4e4">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="37.0" prefWidth="234.0" text="Parabens, sua recarga de 250 reais foi convertida em bonus validos por 7 dias para ligações entre" textFill="#c3c3c3" wrapText="true" />
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets left="10.0" right="10.0" top="20.0" />
+                                                               </padding>
+                                                            </VBox>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="15.0" right="15.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="342.0">
+                                                         <children>
+                                                            <Circle fill="#fff768" radius="29.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                                            <VBox prefHeight="85.0" prefWidth="266.0">
+                                                               <children>
+                                                                  <Label text="+271" textFill="#e8e4e4">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label prefHeight="41.0" prefWidth="234.0" text="Whatsapp codigo: 785698. Nao compartilhe com ninguem" textFill="#c3c3c3" wrapText="true" />
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets left="10.0" right="10.0" top="20.0" />
+                                                               </padding>
+                                                            </VBox>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="15.0" right="15.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="342.0" style="-fx-background-color: #00000034;">
+                                                         <children>
+                                                            <Circle fill="#ffc71f" radius="29.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                                            <VBox prefHeight="85.0" prefWidth="266.0">
+                                                               <children>
+                                                                  <Label text="+49 644" textFill="#e8e4e4">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label text="Bem vindo a Claro, por enquanto nada muda pra voce" textFill="#c3c3c3" wrapText="true" />
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets left="10.0" right="10.0" top="20.0" />
+                                                               </padding>
+                                                            </VBox>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="15.0" right="15.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="342.0">
+                                                         <children>
+                                                            <Circle fill="DODGERBLUE" radius="29.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                                            <VBox prefHeight="85.0" prefWidth="266.0">
+                                                               <children>
+                                                                  <Label text="+29697" textFill="#e8e4e4">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="12.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label text="Houve uma consulta ao seu CPF ou CNPJ. Saiba detalhes em http://serasaa.com.ar" textFill="#c3c3c3" wrapText="true" />
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets left="10.0" right="10.0" top="20.0" />
+                                                               </padding>
+                                                            </VBox>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="15.0" right="15.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </content>
+                                          </ScrollPane>
+                                       </center>
+                                       <top>
+                                          <Label alignment="CENTER" prefHeight="43.0" prefWidth="175.0" text="Mensagem" textFill="WHITE" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font size="29.0" />
+                                             </font>
+                                          </Label>
+                                       </top>
+                                    </BorderPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Apps">
+                                <content>
+                                    <VBox style="-fx-background-image: url(img/wallpaper.jpg); -fx-background-position: center center;">
+                                       <children>
+                                          <VBox prefHeight="538.0" prefWidth="350.0" style="-fx-background-color: #00000025;">
+                                             <children>
+                                                <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER" prefHeight="22.0" prefWidth="340.0" spacing="5.0">
+                                                         <children>
+                                                            <Button fx:id="appWhats" contentDisplay="TOP" minHeight="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#onClick" styleClass="app-menu" text="Whatsapp" textFill="WHITE">
+                                                               <graphic>
+                                                                  <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@img/whats.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button fx:id="appInsta" contentDisplay="TOP" minHeight="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#onClick" styleClass="app-menu" text="Instagram" textFill="WHITE">
+                                                               <graphic>
+                                                                  <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@img/ig.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button fx:id="appFace" contentDisplay="TOP" minHeight="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#onClick" styleClass="app-menu" text="Facebook" textFill="WHITE">
+                                                               <graphic>
+                                                                  <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@img/fb.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="27.0" prefWidth="340.0" spacing="5.0">
+                                                         <children>
+                                                            <Button fx:id="appTwitter" contentDisplay="TOP" minHeight="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#onClick" styleClass="app-menu" text="Twitter" textFill="WHITE">
+                                                               <graphic>
+                                                                  <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@img/tt.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button fx:id="appYoutube" contentDisplay="TOP" minHeight="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#onClick" styleClass="app-menu" text="Youtube" textFill="WHITE">
+                                                               <graphic>
+                                                                  <ImageView fitHeight="80.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@img/you.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Button fx:id="appUber" contentDisplay="TOP" minHeight="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#onClick" styleClass="app-menu" text="Uber" textFill="WHITE">
+                                                               <graphic>
+                                                                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@img/uber.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                               <font>
+                                                                  <Font name="System Bold" size="12.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets top="15.0" />
+                                                   </padding>
+                                                </VBox>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                </content>
+                              </Tab>
+                              <Tab text="WebApp">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <WebView fx:id="webApps" layoutX="-1.0" layoutY="-1.0" prefHeight="537.0" prefWidth="350.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Web">
+                                <content>
+                                    <BorderPane>
+                                       <center>
+                                          <VBox>
+                                             <children>
+                                                <WebView fx:id="webPage" prefHeight="506.0" prefWidth="350.0" />
+                                             </children>
+                                          </VBox>
+                                       </center>
+                                       <top>
+                                          <HBox alignment="CENTER" prefWidth="350.0" spacing="5.0" style="-fx-background-color: #333333;" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <TextField fx:id="tfUrl" prefHeight="27.0" prefWidth="289.0" promptText="URL" style="-fx-border-radius: 90; -fx-border-color: gray; -fx-text-box-border: transparent; -fx-background-radius: 90;" text="http://www.marlosmarques.com/" />
+                                                <Button fx:id="btnRecarregar" contentDisplay="TOP" minHeight="5.0" minWidth="5.0" mnemonicParsing="false" onAction="#onClick" prefHeight="35.0" prefWidth="44.0" styleClass="button-reload">
+                                                   <graphic>
+                                                      <SVGPath content="M17.738 6C16.208 4.764 14.097 4 12 4a8 8 0 1 0 8 8 1 1 0 0 1 2 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2c2.549 0 5.107.916 7 2.449V3a1 1 0 0 1 2 0v4a1 1 0 0 1-1 1h-4a1 1 0 0 1 0-2h1.738z" fill="WHITE" />
+                                                   </graphic>
+                                                   <padding>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </padding></Button>
+                                             </children>
+                                             <BorderPane.margin>
+                                                <Insets />
+                                             </BorderPane.margin>
+                                             <padding>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                       </top>
+                                    </BorderPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Tel2">
+                                <content>
+                                    <BorderPane style="-fx-background-color: #333333;">
+                                       <bottom>
+                                          <HBox alignment="TOP_CENTER" prefHeight="90.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <Button fx:id="btnTelCallStop" mnemonicParsing="false" onAction="#onClick" prefHeight="50.0" prefWidth="50.0" styleClass="button-calloff" textFill="#d30000">
+                                                   <graphic>
+                                                      <SVGPath content="M4.51,15.48 L6.51,13.89 C6.99,13.51 7.27,12.93 7.27,12.32 L7.27,9.72 C10.29,8.74 13.56,8.73 16.59,9.72 L16.59,12.33 C16.59,12.94 16.87,13.52 17.35,13.9 L19.34,15.48 C20.14,16.11 21.28,16.05 22,15.33 L23.22,14.11 C24.02,13.31 24.02,11.98 23.17,11.23 C16.76,5.57 7.1,5.57 0.69,11.23 C-0.16,11.98 -0.16,13.31 0.64,14.11 L1.86,15.33 C2.57,16.05 3.71,16.11 4.51,15.48 Z" fill="WHITE" />
+                                                   </graphic>
+                                                   <HBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </bottom>
+                                       <center>
+                                          <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <Button mnemonicParsing="false" style="-fx-background-color: lightgreen; -fx-background-radius: 90;">
+                                                   <graphic>
+                                                      <ImageView fitHeight="62.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@img/account.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <padding>
+                                                      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                                   </padding>
+                                                </Button>
+                                                <Label text="Ligando..." textFill="#d0cccc">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label fx:id="lblNumber2" text="77 9 88888888" textFill="#5096ff">
+                                                   <font>
+                                                      <Font size="30.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets top="65.0" />
+                                             </padding>
+                                          </VBox>
+                                       </center>
+                                    </BorderPane>
+                                </content>
+                              </Tab>
+                              <Tab text="SO">
+                                <content>
+                                    <BorderPane style="-fx-background-color: #333333;">
+                                       <center>
+                                          <VBox>
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="30.0" prefWidth="331.0" text="Introducao" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="30.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label text="O que e um SO?" textFill="#5096ff">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Eh um programa de sistema que controla todos os recursos de um computador e fornece uma base sobre a qual os programas e aplicativos podem ser escritos." wrappingWidth="334.39454650878906" />
+                                                <Label text="SO como maquina extendida" textFill="#5096ff">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="O programa que esconde do programador a verdade sobre o hardware e apresenta uma bela e simples visao de nomes de arquivos que podem ser lidos e gravados. Alem de esconder do programador recursos de baixo nivel como temporizadores e gerenciamento de memoria." wrappingWidth="334.39454650878906" />
+                                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Desse modo, a funcao do sistema operacional eh apresentar ao usuario uma maquina extendida que eh mais facil de programar que o hardware subjacente." wrappingWidth="334.39454650878906" />
+                                                <Label text="SO como gerenciador de recursos" textFill="#5096ff">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Essa visao do sistema operacional sustenta que sua tarefa eh monitorar quem esta utilizado qual recursos, atender requisicoes de recurso, medir a utilizacao e as requisicoes conflitantes de diferentes programas e usuarios." wrappingWidth="334.39454650878906" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </center>
+                                    </BorderPane>
+                                </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </center>
+                     <top>
+                        <BorderPane prefHeight="36.0" prefWidth="290.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+                           <left>
+                              <HBox alignment="CENTER_LEFT" prefHeight="115.0" prefWidth="156.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label fx:id="lblTime" text="17:05" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </HBox>
+                           </left>
+                           <right>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="134.0" spacing="5.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button minHeight="1.0" minWidth="1.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="13.0" styleClass="icon-batery" stylesheets="@sytle.css" />
+                                    <Button minHeight="1.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="19.0" styleClass="icon-wifi" stylesheets="@sytle.css" />
+                                 </children>
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                              </HBox>
+                           </right>
+                        </BorderPane>
+                     </top>
+                  </BorderPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <VBox alignment="CENTER" layoutX="403.0" layoutY="40.0" prefHeight="79.0" prefWidth="100.0" spacing="5.0" style="-fx-border-color: black; -fx-background-color: gray;">
+         <children>
+            <Button fx:id="btnFechar" mnemonicParsing="false" onAction="#onClick" prefHeight="25.0" prefWidth="75.0" text="Fechar" />
+            <Button fx:id="btnArrastar" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Arrastar" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
